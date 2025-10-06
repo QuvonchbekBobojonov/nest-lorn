@@ -1,5 +1,12 @@
+import { IsNotEmpty, IsString } from 'class-validator';
+
+
 export class BlogDto {
-  id: number;
+  @IsNotEmpty()
+  @IsString()
   title: string;
+
+  @IsNotEmpty()
+  @IsString()
   content: string;
 }

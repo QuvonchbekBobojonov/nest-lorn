@@ -8,7 +8,7 @@ import {
   NotFoundException,
   Param,
   Patch,
-  Post,
+  Post, UsePipes, ValidationPipe,
 } from '@nestjs/common';
 import { BlogDto } from './dto/blog.dto';
 import { BlogService } from './blog.service';
@@ -24,6 +24,7 @@ export class BlogController {
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
+  @UsePipes(ValidationPipe)
   async createBlog(@Body() body: BlogDto) {
     return this.blogService.createPost(body);
   }
